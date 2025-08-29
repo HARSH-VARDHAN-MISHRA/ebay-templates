@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ebay Product Detail</title>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Section Headings */
+        h2.section-title {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 5px solid #003873;
+            margin-top: 0;
+        }
+
+        h3.sub-title {
+            color: #003873;
+            margin-top: 20px;
+        }
+
+        /* Lists */
+        ul.feature-list,
+        ul.compatibility-list,
+        ul.shipping-list {
+            margin: 10px 0 15px 20px;
+            padding: 0;
+        }
+
+        ul.feature-list li,
+        ul.compatibility-list li,
+        ul.shipping-list li {
+            margin-bottom: 6px;
+        }
+
+        /* OEM Part Numbers Box */
+        .part-numbers {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            font-size: 14px;
+            line-height: 1.6;
+            max-height: 180px;
+            overflow-y: auto;
+        }
+
+        .note {
+            font-size: 13px;
+            color: #666;
+            margin-top: 8px;
+        }
+
+        /* Compatibility Table */
+        .compatibility-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .compatibility-table th {
+            background: #003873;
+            color: #fff;
+            padding: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .compatibility-table td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+
+        /* Shipping & Payments Section */
+        .shipping-section {
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .shipping-section h2 {
+            color: #003873;
+            margin-bottom: 15px;
+        }
+
+        .shipping-section h3 {
+            color: #4377a2;
+            margin-top: 10px;
+        }
+
+        .shipping-logos {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 10px 0;
+        }
+
+        .shipping-logos img {
+            height: 50px;
+        }
+
+
+
+
+
+
+
+        /* About Us */
+        .about {
+            margin-top: 30px;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .about h2 {
+            color: #003873;
+            margin-bottom: 10px;
+        }
+
+        .about p {
+            color: #444;
+            font-size: 14px;
+        }
+
+
+
+
+
+
+        /* Center Section */
+        .quick-links,
+        .socials {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+      /* Quick Links */
+.quick-links nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.quick-links nav ul li a {
+  color: #003873;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.quick-links nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: #00AAA9;
+  transition: width 0.3s ease;
+}
+
+.quick-links nav ul li a:hover {
+  color: #00AAA9;
+}
+
+.quick-links nav ul li a:hover::after {
+  width: 100%;
+}
+
+
+        /* Social Icons */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 18px;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.15);
+        }
+
+        /* Brand Colors */
+        .facebook {
+            background: #3b5998;
+        }
+
+        .pinterest {
+            background: #bd081c;
+        }
+
+        .instagram {
+            background: #e1306c;
+        }
+
+        .twitter {
+            background: #1da1f2;
+        }
+
+        .youtube {
+            background: #ff0000;
+        }
+
+        .linkedin {
+            background: #0077b5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PRODUCT TITLE -->
+    <h2 class="section-title">Turbocharger For BMW X3 819976-0014</h2>
+
+    <!-- INTRO -->
+    <p>
+        The <strong>Turbocharger for BMW X3 819976-0014</strong> is a high-quality turbocharger
+        designed to enhance the performance of your BMW X3. This turbocharger is specifically engineered
+        for the BMW X3, ensuring optimal power, durability, and efficiency.
+    </p>
+
+    <!-- KEY FEATURES -->
+    <h3 class="sub-title">Key Features</h3>
+    <ul class="feature-list">
+        <li>High-performance turbocharger for BMW X3</li>
+        <li>Boosts engine power and acceleration</li>
+        <li>Improves fuel efficiency with optimized combustion</li>
+        <li>Durable construction for high temperatures and tough conditions</li>
+        <li>Direct OEM replacement with precise compatibility</li>
+    </ul>
+
+    <!-- OEM & PART NUMBERS -->
+    <h3 class="sub-title">OEM and Part Numbers</h3>
+    <div class="part-numbers">
+        11658570082, 8570082D03, Turbo-G768, 857008212, 8570082F05, 11658570083, 8570082, 8570083, 8513616,
+        11658513616, 11428513616, 8570082E04, 8570082J08, 85700820000, 8570082H07, 8570082M11, 8570080J11,
+        851364106, 851364004, 11658570080F06, 8513640, 8570080, 851364005, 8513641, 11658570081, 851364103,
+        11658513640, 851364105, 8570080H08, 851364003, 11658570080G07, 851364006, 851364107, 851364007,
+        851364104, 11658513641, 11658514267, 8514266, 8514267, 11658514266, 8570080G07, 8570080F06,
+        11658570080, 8570081, 8591734, 11658591734, 851364102, 11658582021, 851364002, 8582021, 11658513635,
+        8513636, 8513635, 11658513636, 857008212, 11658511719, 11658513652, 11658579212, 11658579212C03,
+        11658579213, 8511719, 8513652, 8570080I09, 8579212, 857921200000, 8579212C03, 8579212D04, 8579212F06,
+        857008204, 857008206, 857008207, 857008208, 857008309, 857008310, 8570082L10, 8570082G06, 11428511647,
+        11428472392, 11428513614, 11428579999, 8199760024, 8199760007, 819976-5021S, 819976-0021, 819976-14, 819976-12,
+        81997610, 8199760010,
+        8199760012, 819976-0014, 819976-21, 81997624, 819976-5010S, 8199760013, 819976-13, 81997614,
+        8199765013S, 819976-0013, 8199765010S, 819976-0012, 8199765015S, 8199767, 81997613, Turbo-G768,
+        819976-5001K, 911445, 819976-15, 819976-0007, 819976-0015, 81997612, T916646, 819976-5024S,
+        819976-5007S, 819976-5015S, 8199765012S, 819976-5014S, 8199765007S, 819976-0010, 819976-24,
+        819976-5001RS, 8199760015, 819976-10, 8199760014, 81997621, 81997615, 819976-0024, 819976-5013S,
+        819976-7, 8199760021, 819976, 819976-5012S, 8199765024S, 8199765014S, 8199765021S
+    </div>
+
+    <p class="note">*If you don’t see your OEM or Part number listed, please contact us. We maintain a large catalog of
+        numbers.</p>
+
+    <!-- COMPATIBILITY -->
+    <h3 class="sub-title">Compatibility</h3>
+    <table class="compatibility-table">
+        <thead>
+            <tr>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Year</th>
+                <th>Chassis</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>BMW</td>
+                <td>1 Series</td>
+                <td>2013 - 2016</td>
+                <td>F20</td>
+            </tr>
+            <tr>
+                <td>BMW</td>
+                <td>3 Series</td>
+                <td>2007 - 2011</td>
+                <td>E90</td>
+            </tr>
+            <tr>
+                <td>BMW</td>
+                <td>3 Series</td>
+                <td>2012 - 2015</td>
+                <td>F30</td>
+            </tr>
+            <tr>
+                <td>BMW</td>
+                <td>5 Series</td>
+                <td>2013 - 2017</td>
+                <td>F10 LCI</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3 class="sub-title">Compatibility (Quick List)</h3>
+    <ul class="compatibility-list">
+        <li>BMW 1 Series (2013 - 2016) F20</li>
+        <li>BMW 3 Series (2012 - 2018) F30</li>
+        <li>BMW 5 Series (2011 - 2016) F10</li>
+    </ul>
+
+    <p><strong>Note 1:</strong> Please check the Turbocharger part number / OEM part number from your old part no to be
+        100% sure if this is the right one for your Vehicle.</p>
+    <p><strong>Note 2:</strong> If your vehicle part number matched with our any compatible Turbocharger & OEM part
+        number, this is 100% fit and suitable for your turbocharger.</p>
+
+    <!-- INSTALLATION -->
+    <h3 class="sub-title">Installation</h3>
+    <p>
+        Professional installation is strongly recommended. Please ensure the OEM and part numbers match your
+        existing turbocharger before purchase. Consult your vehicle’s manual or a certified mechanic for
+        proper installation.
+    </p>
+
+    <!-- SHIPPING & PAYMENTS -->
+    <section class="shipping-section">
+        <h2>Shipping & Payments</h2>
+
+        <h3><i class="fa-solid fa-truck-fast" style="margin-right:8px; color:#2dbcb6;"></i> Shipments</h3>
+        <p>We ship items worldwide, and delivery takes approximately <strong>7-8 business days</strong>.</p>
+
+        <div class="shipping-logos">
+            <img src="./aramex.jpg" alt="Aramex">
+            <img src="./DHL.png" alt="DHL">
+            <img src="./FedEx.webp" alt="FedEx">
+        </div>
+
+        <ul class="shipping-list">
+            <li>We are <strong>not liable</strong> for import duties or taxes charged by the destination country.</li>
+            <li>Buyers are responsible for paying customs fees. If the buyer denies the parcel, <strong>refunds will not
+                    be
+                    initiated</strong>.</li>
+            <li>Please provide your <strong>full address</strong> with a correct phone number to avoid shipment delays.
+                PO Box
+                addresses may not be accepted.</li>
+        </ul>
+
+        <h3><i class="fa-solid fa-credit-card" style="margin-right:8px; color:#00AAA9;"></i> Payments</h3>
+        <p>We accept secure payments via <strong>PayPal</strong>. Item price and shipping costs are clearly mentioned
+            with
+            each product.</p>
+
+        <h3><i class="fa-solid fa-rotate-left" style="margin-right:8px; color:#4377a2;"></i> Returns</h3>
+        <p>We offer a <strong>30-day return policy</strong>. If the wrong item is delivered or if a replacement is
+            required,
+            customers may return the product within 30 days of receipt. Returned items should be in their original
+            condition to
+            qualify for a refund or exchange.</p>
+    </section>
+
+    <!-- ABOUT US -->
+    <section class="about">
+        <h2>About Us</h2>
+        <p>
+            We are <strong>Partsklik LLP</strong>, a trusted name in the automotive parts business with over 30 years of
+            experience. Our expertise lies in providing premium-quality turbochargers and components, trusted by global
+            distributors and individual customers alike. We proudly supply parts from leading brands such as Garrett,
+            TEL,
+            Holset Cummins, Mitsubishi, iHi, and more. Based in India, <strong>Partsklik</strong> has been serving the
+            global
+            market since April 10, 2024.
+        </p>
+    </section>
+
+    <!-- QUICK LINKS -->
+    <section class="quick-links">
+        <nav>
+            <ul>
+                <li><a href="https://www.ebay.de/str/partsklik" target="_blank">Our Profile</a></li>
+                <li><a href="https://www.ebay.de/str/partsklik?_tab=feedback#tab2" target="_blank">Reviews</a></li>
+                <li><a href="https://www.ebay.de/contact/sendmsg?&recipient=partsklik" target="_blank">Send us a
+                        Message</a></li>
+                <li><a href="https://www.ebay.de/sch/i.html?_ssn=partsklik" target="_blank">Browse More Products</a>
+                </li>
+            </ul>
+        </nav>
+    </section>
+
+    <!-- SOCIAL MEDIA -->
+    <section class="socials">
+        <div class="social-icons">
+            <a href="https://www.facebook.com/partsklik" target="_blank" class="facebook"><i
+                    class="fab fa-facebook-f"></i></a>
+            <a href="https://in.pinterest.com/partsklik" target="_blank" class="pinterest"><i
+                    class="fab fa-pinterest-p"></i></a>
+            <a href="https://www.instagram.com/partsklik" target="_blank" class="instagram"><i
+                    class="fab fa-instagram"></i></a>
+            <a href="https://x.com/partsklik" target="_blank" class="twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.youtube.com/partsklik" target="_blank" class="youtube"><i
+                    class="fab fa-youtube"></i></a>
+            <a href="https://www.linkedin.com/partsklik" target="_blank" class="linkedin"><i
+                    class="fab fa-linkedin-in"></i></a>
+        </div>
+    </section>
+
+
+
+
+
+
+
+</body>
+
+</html>
