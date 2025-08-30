@@ -20,12 +20,133 @@
             margin: auto;
         }
 
-        /* Section Headings */
+
+
+
+
+        .product-gallery {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        /* Main Image */
+        .main-image {
+            flex: 1 1 65%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #f4f4f4;
+            /* box-shadow: 0 4px 5px rgba(0, 0, 0, 0.08); */
+        }
+
+        .main-image img {
+            width: 100%;
+            max-height: 500px;
+            border-radius: 10px;
+            object-fit: contain;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Thumbnails */
+        .thumbnails {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex: 0 0 100px;
+        }
+
+        .thumbnails img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .thumbnails img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .thumbnails img.active {
+            border: 2px solid #0077cc;
+            transform: scale(1.05);
+        }
+
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .product-gallery {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .thumbnails {
+                flex-direction: row;
+                overflow-x: auto;
+                gap: 10px;
+                -webkit-overflow-scrolling: touch;
+                max-width: 100%;
+                padding: 0.2rem 0.2rem;
+            }
+
+            .thumbnails img {
+                width: 60px;
+                height: 60px;
+                object-fit: cover;
+                flex: 0 0 auto;
+            }
+
+            /* Optional: hide scrollbar for cleaner look */
+            .thumbnails::-webkit-scrollbar {
+                height: 6px;
+            }
+
+            .thumbnails::-webkit-scrollbar-thumb {
+                background: #ccc;
+                border-radius: 3px;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* Section Headings 
         h2.section-title {
             background: #f4f4f4;
             padding: 10px;
             border-left: 5px solid #003873;
             margin-top: 0;
+        } */
+
+        h2.section-title {
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #003873;
         }
 
         h3.sub-title {
@@ -160,17 +281,18 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            gap: 25px;
+            gap: 1.5rem;
             flex-wrap: wrap;
         }
 
         .quick-links nav ul li a {
             color: #003873;
-            font-weight: 500;
+            font-weight: 600;
             text-decoration: none;
             position: relative;
-            font-size: 16px;
+            font-size: 0.9rem;
             transition: color 0.3s ease;
+            text-transform: uppercase;
         }
 
         .quick-links nav ul li a::after {
@@ -191,6 +313,21 @@
         .quick-links nav ul li a:hover::after {
             width: 100%;
         }
+
+        /* Responsive for mobile */
+        @media (max-width: 768px) {
+            .quick-links nav ul {
+                flex-direction: column;
+                gap: 0.8rem;
+                align-items: center;
+            }
+
+            .quick-links nav ul li a {
+                font-size: 1rem;
+                padding: 8px 12px;
+            }
+        }
+
 
 
 
@@ -223,47 +360,43 @@
             font-size: 15px;
             line-height: 1.6;
         }
-
-
-
-
-
-        /* Quick Links */
-        .quick-links {
-            text-align: center;
-            margin-top: 25px;
-        }
-
-        .quick-links h3 {
-            margin-bottom: 10px;
-            color: #003873;
-        }
-
-        .quick-links nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
-
-        .quick-links nav ul li a {
-            color: #003873;
-            font-weight: 500;
-            font-size: 15px;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .quick-links nav ul li a:hover {
-            color: #00AAA9;
-        }
     </style>
 
 </head>
 
 <body>
+
+
+
+
+    <div class="product-gallery">
+        <!-- Main Image -->
+        <div class="main-image">
+            <img id="currentImage" src="./assets/images/turbocharger-bmw-x3-image-1.png" alt="Turbocharger BMW X3">
+        </div>
+
+        <!-- Thumbnails -->
+        <div class="thumbnails">
+            <img src="./assets/images/turbocharger-bmw-x3-image-1.png" alt="Image 1" onclick="changeImage(this)"
+                class="active">
+            <img src="./assets/images/turbocharger-bmw-x3-image-2.png" alt="Image 2" onclick="changeImage(this)">
+            <img src="./assets/images/turbocharger-bmw-x3-image-3.png" alt="Image 3" onclick="changeImage(this)">
+            <img src="./assets/images/turbocharger-bmw-x3-image-4.png" alt="Image 4" onclick="changeImage(this)">
+            <img src="./assets/images/turbocharger-bmw-x3-image-5.png" alt="Image 5" onclick="changeImage(this)">
+            <img src="./assets/images/turbocharger-bmw-x3-image-1.png" alt="Image 5" onclick="changeImage(this)">
+        </div>
+    </div>
+
+    <script>
+        function changeImage(element) {
+            const mainImage = document.getElementById('currentImage');
+            mainImage.src = element.src;
+
+            // Add active class to clicked thumbnail
+            document.querySelectorAll('.thumbnails img').forEach(img => img.classList.remove('active'));
+            element.classList.add('active');
+        }
+    </script>
 
     <!-- PRODUCT TITLE -->
     <h2 class="section-title">Turbocharger For BMW X3 819976-0014</h2>
@@ -442,9 +575,6 @@
 
 
     </section>
-
-
-
 
 
 
