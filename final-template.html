@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ebay - Turbocharger For Renault Duster 110 BHP 54399700127 E&E</title>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            max-width: 1170px;
+            margin: auto;
+        }
+
+
+        .product-gallery {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        /* Main Image */
+        .main-image {
+            flex: 1 1 65%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #f4f4f4;
+            /* box-shadow: 0 4px 5px rgba(0, 0, 0, 0.08); */
+        }
+
+        .main-image img {
+            width: 100%;
+            max-height: 500px;
+            border-radius: 10px;
+            object-fit: contain;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Thumbnails */
+        .thumbnails {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex: 0 0 100px;
+        }
+
+        .thumbnails img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .thumbnails img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .thumbnails img.active {
+            border: 2px solid #0077cc;
+            transform: scale(1.05);
+        }
+
+
+
+
+
+        /* Hide all radio inputs */
+        input[type="radio"] {
+            display: none;
+        }
+
+        /* Show the selected main image */
+        #img1:checked~.main-image img:nth-child(1),
+        #img2:checked~.main-image img:nth-child(2),
+        #img3:checked~.main-image img:nth-child(3),
+        #img4:checked~.main-image img:nth-child(4) {
+            display: block;
+        }
+
+        /* Hide non-selected images */
+        .main-image img {
+            display: none;
+        }
+
+        /* Active thumbnail border */
+        #img1:checked~.thumbnails label[for="img1"] img,
+        #img2:checked~.thumbnails label[for="img2"] img,
+        #img3:checked~.thumbnails label[for="img3"] img,
+        #img4:checked~.thumbnails label[for="img4"] img {
+            border: 2px solid #0077cc;
+            transform: scale(1.05);
+        }
+
+
+
+
+
+
+
+
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .product-gallery {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .thumbnails {
+                flex-direction: row;
+                overflow-x: auto;
+                gap: 10px;
+                -webkit-overflow-scrolling: touch;
+                max-width: 100%;
+                padding: 0.2rem 0.2rem;
+            }
+
+            .thumbnails img {
+                width: 60px;
+                height: 60px;
+                object-fit: cover;
+                flex: 0 0 auto;
+            }
+
+            /* Optional: hide scrollbar for cleaner look */
+            .thumbnails::-webkit-scrollbar {
+                height: 6px;
+            }
+
+            .thumbnails::-webkit-scrollbar-thumb {
+                background: #ccc;
+                border-radius: 3px;
+            }
+        }
+
+
+        /* Section Headings 
+        h2.section-title {
+            background: #f4f4f4;
+            padding: 10px;
+            border-left: 5px solid #003873;
+            margin-top: 0;
+        } */
+
+        h2.section-title {
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #003873;
+        }
+
+        h3.sub-title {
+            color: #003873;
+            margin-top: 20px;
+        }
+
+        /* Lists */
+        ul.feature-list,
+        ul.compatibility-list,
+        ul.shipping-list {
+            margin: 10px 0 15px 20px;
+            padding: 0;
+        }
+
+        ul.feature-list li,
+        ul.compatibility-list li,
+        ul.shipping-list li {
+            margin-bottom: 6px;
+        }
+
+        /* OEM Part Numbers Box */
+        .part-numbers {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            font-size: 14px;
+            line-height: 1.6;
+            max-height: 180px;
+            overflow-y: auto;
+        }
+
+        .note {
+            font-size: 13px;
+            color: #666;
+            margin-top: 8px;
+        }
+
+        /* Compatibility Table */
+        .compatibility-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .compatibility-table th {
+            background: #003873;
+            color: #fff;
+            padding: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .compatibility-table td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+
+        /* Shipping & Payments Section */
+        .shipping-section {
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .shipping-section h2 {
+            color: #003873;
+            margin-bottom: 15px;
+        }
+
+        .shipping-section h3 {
+            color: #4377a2;
+            margin-top: 10px;
+        }
+
+        .shipping-logos {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 10px 0;
+        }
+
+        .shipping-logos img {
+            height: 50px;
+        }
+
+
+
+        /* About Us */
+        .about {
+            margin-top: 30px;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .about h2 {
+            color: #003873;
+            margin-bottom: 10px;
+        }
+
+        .about p {
+            color: #444;
+            font-size: 14px;
+        }
+
+
+
+        /* Center Section */
+        .quick-links,
+        .socials {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+
+
+
+
+        /* Quick Links */
+        .quick-links nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .quick-links nav ul li a {
+            color: #003873;
+            font-weight: 600;
+            text-decoration: none;
+            position: relative;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .quick-links nav ul li a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0%;
+            height: 2px;
+            background-color: #00AAA9;
+            transition: width 0.3s ease;
+        }
+
+        .quick-links nav ul li a:hover {
+            color: #00AAA9;
+        }
+
+        .quick-links nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Responsive for mobile */
+        @media (max-width: 768px) {
+            .quick-links nav ul {
+                flex-direction: column;
+                gap: 0.8rem;
+                align-items: center;
+            }
+
+            .quick-links nav ul li a {
+                font-size: 1rem;
+                padding: 8px 12px;
+            }
+        }
+
+
+        .about {
+            margin-top: 30px;
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .about h2 {
+            color: #003873;
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+
+        .about p {
+            color: #444;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="product-gallery">
+        <!-- Radio buttons to switch images -->
+        <input type="radio" name="gallery" id="img1" checked>
+        <input type="radio" name="gallery" id="img2">
+        <input type="radio" name="gallery" id="img3">
+        <input type="radio" name="gallery" id="img4">
+
+        <!-- Main Image Area -->
+        <div class="main-image">
+            <img src="https://turbowale.com/cdn/shop/files/Turbocharger-For-Renault-Duster-110-Bhp-54399700127-1_696x927.webp"
+                alt="Image 1">
+            <img src="https://turbowale.com/cdn/shop/files/Turbocharger-For-Renault-Duster-110-Bhp-54399700127-2_695x816.webp"
+                alt="Image 2">
+            <img src="https://turbowale.com/cdn/shop/files/Turbocharger-For-Renault-Duster-110-Bhp-54399700127-3_695x522.webp"
+                alt="Image 3">
+            <img src="https://turbowale.com/cdn/shop/files/Turbocharger-For-Renault-Duster-110-Bhp-54399700127-4_696x927.webp"
+                alt="Image 4">
+        </div>
+
+        <!-- Thumbnails -->
+        <div class="thumbnails">
+            <label for="img1"><img
+                    src="https://turbowale.com/cdn/shop/files/Turbocharger-For-Renault-Duster-110-Bhp-54399700127-1_696x927.webp"
+                    alt="Thumb 1"></label>
+            <label for="img2"><img
+                    src="https://turbowale.com/cdn/shop/files/Turbocharger-For-Renault-Duster-110-Bhp-54399700127-2_695x816.webp"
+                    alt="Thumb 2"></label>
+            <label for="img3"><img
+                    src="https://turbowale.com/cdn/shop/files/Turbocharger-For-Renault-Duster-110-Bhp-54399700127-3_695x522.webp"
+                    alt="Thumb 3"></label>
+            <label for="img4"><img
+                    src="https://turbowale.com/cdn/shop/files/Turbocharger-For-Renault-Duster-110-Bhp-54399700127-4_696x927.webp"
+                    alt="Thumb 4"></label>
+        </div>
+    </div>
+
+
+
+    <!-- PRODUCT TITLE -->
+    <h2 class="section-title">Turbocharger For Renault Duster 110 BHP 54399700127 E&E</h2>
+
+    <!-- INTRO -->
+    <p>
+        The <strong>Turbocharger For Renault Duster 110 BHP 54399700127 E&E</strong> is a superior automotive component
+        designed to boost your vehicle’s performance. Manufactured by E&amp;E, a brand renowned for its high-quality
+        automotive parts, this turbocharger promises reliability and efficiency.
+    </p>
+
+    <!-- KEY FEATURES -->
+    <h3 class="sub-title">Key Features</h3>
+    <ul class="feature-list">
+        <li>High-performance turbocharger for Audi A6</li>
+        <li>Boosts engine power and acceleration</li>
+        <li>Improves fuel efficiency with optimized combustion</li>
+        <li>Durable construction for high temperatures and tough conditions</li>
+        <li>Direct OEM replacement with precise compatibility</li>
+    </ul>
+
+    <!-- OEM & PART NUMBERS -->
+    <h3 class="sub-title">OEM and Part Numbers</h3>
+    <div class="part-numbers">
+        Turbo-K106S , 54399700127, 14411-4256R, 144114256R, - , 14411-6289R, 14411-00Q1G, 14411-2505R, 8200889697,
+        1441100Q1G, 3541902010, -, 203529820303, 144112505R, 7.701.479.077, 144116577R
+    </div>
+
+    <p class="note">*If you don’t see your OEM or Part number listed, please contact us. </p>
+    <!-- We maintain a large catalog of numbers. -->
+
+    <!-- COMPATIBILITY -->
+    <h3 class="sub-title">Compatible Models</h3>
+    <table class="compatibility-table">
+        <thead>
+            <tr>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Year</th>
+                <th>Code</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Audi</td>
+                <td>A6</td>
+                <td>2004 - 2011</td>
+                <td>4F2</td>
+            </tr>
+            <tr>
+                <td>Audi</td>
+                <td>A6</td>
+                <td>2010-2015</td>
+                <td>4th gen 4G2</td>
+            </tr>
+            <tr>
+                <td>Audi</td>
+                <td>A6</td>
+                <td>2015-2019</td>
+                <td>C7 4th gen F/l</td>
+            </tr>
+            <tr>
+                <td>Audi</td>
+                <td>A6</td>
+                <td>2019-2025</td>
+                <td>C8 5th gen</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- <h3 class="sub-title">Compatible Models</h3>
+    <ul class="compatibility-list">
+        <li>BMW 1 Series (2013 - 2016) F20</li>
+        <li>BMW 3 Series (2012 - 2018) F30</li>
+        <li>BMW 5 Series (2011 - 2016) F10</li>
+    </ul> -->
+
+    <p><strong>Note 1:</strong> Please check the Turbocharger part number / OEM part number from your old part no to be
+        100% sure if this is the right one for your Vehicle.</p>
+    <p><strong>Note 2:</strong> If your vehicle part number matched with our any compatible Turbocharger & OEM part
+        number, this is 100% fit and suitable for your turbocharger.</p>
+
+    <!-- INSTALLATION -->
+    <h3 class="sub-title">Installation</h3>
+    <p>
+        Professional installation is strongly recommended. Please ensure the OEM and part numbers match your
+        existing turbocharger before purchase. Consult your vehicle’s manual or a certified mechanic for
+        proper installation.
+    </p>
+
+    <!-- SHIPPING & PAYMENTS -->
+    <section class="shipping-section">
+        <h2>Shipping & Payments</h2>
+
+        <h3>Shipments</h3>
+        <p>We ship items worldwide, and delivery takes approximately <strong>7-8 business days</strong>.</p>
+        <p>For standard shipping, we use <strong>Aramex, FedEx, and DHL</strong> for quick movement of items.
+            If the item does not arrive at the destination within this period, please contact us.</p>
+
+        <div class="shipping-logos">
+            <img src="https://partsklik24.com/media/partsklik_images/aramex.jpg" alt="Aramex">
+            <img src="https://partsklik24.com/media/partsklik_images/DHL.png" alt="DHL">
+            <img src="https://partsklik24.com/media/partsklik_images/FedEx.webp" alt="FedEx">
+        </div>
+
+        <ul class="shipping-list">
+            <li>We are <strong>not liable</strong> for import duties or taxes charged by the destination country.</li>
+            <li>Buyers are responsible for paying customs fees. If the buyer denies the parcel, <strong>refunds will not
+                    be initiated</strong>.</li>
+            <li>Please provide your <strong>full address</strong> with a correct phone number to avoid shipment delays.
+                PO Box addresses may not be accepted.</li>
+        </ul>
+
+        <h3>Payments</h3>
+        <p>We accept secure payments via <strong>PayPal</strong>. Item price and shipping costs are clearly mentioned
+            with each product.</p>
+
+        <h3>Returns</h3>
+        <p>We offer a <strong>30-day return policy</strong>. If the wrong item is delivered or if a replacement is
+            required, customers may return the product within 30 days of receipt. Returned items should be in their
+            original condition to qualify for a refund or exchange.</p>
+    </section>
+
+    <!-- ABOUT US -->
+    <section class="about">
+        <h2>About Us</h2>
+        <p>
+            We are <strong>Partsklik LLP</strong>, a trusted name in the automotive parts business with over 30 years of
+            experience. Our expertise lies in providing premium-quality turbochargers and components, trusted by global
+            distributors and individual customers alike. We proudly supply parts from leading brands such as
+            <strong>Garrett, TEL, Holset Cummins, Mitsubishi, iHi,</strong> and more. Based in India,
+            <strong>Partsklik</strong> has been serving the
+            global
+            market since April 10, 2024.
+        </p>
+
+        <!-- QUICK LINKS -->
+        <section class="quick-links">
+            <nav>
+                <ul>
+                    <li><a href="https://www.ebay.de/str/partsklik" target="_blank">Our Profile</a></li>
+                    <li><a href="https://www.ebay.de/str/partsklik?_tab=feedback#tab2" target="_blank">Reviews</a></li>
+                    <li><a href="https://www.ebay.de/contact/sendmsg?&recipient=partsklik" target="_blank">Send us a
+                            Message</a></li>
+                    <li><a href="https://www.ebay.de/sch/i.html?_ssn=partsklik" target="_blank">Browse More Products</a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </section>
+
+</body>
+
+</html>

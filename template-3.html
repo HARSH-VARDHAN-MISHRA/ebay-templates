@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ebay Product Detail - New Template</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: #fafafa;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(90deg, #003873, #0077cc);
+            color: #fff;
+            padding: 1.8rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            margin: 10px 0 0;
+            font-size: 16px;
+        }
+
+        /* LAYOUT */
+        .layout {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .gallery {
+            flex: 1 1 50%;
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+        }
+
+        .gallery img {
+            width: 100%;
+            max-width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border: 2px solid #f4f4f4;
+        }
+
+        .thumbs {
+            display: flex;
+            gap: 8px;
+        }
+
+        .thumbs img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: 0.3s;
+            border: 1px solid #f4f4f4;
+        }
+
+        .thumbs img.active,
+        .thumbs img:hover {
+            border: 2px solid #0077cc;
+            transform: scale(1.05);
+        }
+
+
+        h2.section-title {
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #003873;
+            margin-bottom: 0rem;
+        }
+
+        p {
+            margin-top: 0rem;
+            padding-top: 0rem;
+        }
+
+        h3.sub-title {
+            color: #003873;
+            margin-top: 20px;
+        }
+
+
+        /* OEM Part Numbers Box */
+        .part-numbers {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            font-size: 14px;
+            line-height: 1.6;
+            max-height: 180px;
+            overflow-y: auto;
+        }
+
+        .note {
+            font-size: 13px;
+            color: #666;
+            margin-top: 8px;
+        }
+
+
+
+
+
+
+
+
+
+        /* DETAILS */
+        .details {
+            flex: 1 1 45%;
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .details:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .details h2 {
+            color: #003873;
+            margin-top: 0;
+        }
+
+        .details ol {
+            padding-left: 1.5rem;
+            margin: 0;
+            list-style: decimal-leading-zero;
+        }
+
+        .details ol li {
+            margin-bottom: 12px;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .details strong {
+            color: #003873;
+        }
+
+
+
+
+
+
+        /* TABS */
+        .tabs {
+            margin-top: 30px;
+        }
+
+        .tab-buttons {
+            display: flex;
+            border-bottom: 2px solid #eee;
+            gap: 10px;
+        }
+
+        .tab-buttons button {
+            flex: 1;
+            padding: 12px;
+            background: #f4f4f4;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            color: #003873;
+            transition: 0.3s;
+            text-wrap: nowrap;
+            text-transform: uppercase;
+        }
+
+        .tab-buttons button.active {
+            background: #003873;
+            color: #fff;
+        }
+
+        .tab-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+        }
+
+        .tab-content section {
+            display: none;
+        }
+
+        .tab-content section.active {
+            display: block;
+        }
+
+
+
+
+
+
+
+
+        /* Compatibility Table */
+        .compatibility-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .compatibility-table th {
+            background: #003873;
+            color: #fff;
+            padding: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .compatibility-table td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+
+
+
+          /* Shipping & Payments Section */
+      
+
+        .shipping-section h2 {
+            color: #003873;
+            margin-bottom: 15px;
+        }
+
+        .shipping-section h3 {
+            color: #4377a2;
+            margin-top: 10px;
+        }
+
+        .shipping-logos {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 10px 0;
+        }
+
+        .shipping-logos img {
+            height: 50px;
+        }
+
+
+
+
+
+
+        /* FOOTER LINKS */
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .footer a {
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+            color: #003873;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .footer a:hover {
+            color: #00aaa9;
+        }
+
+
+
+        @media (max-width: 768px) {
+
+            .hero h1 {
+                font-size: 1.2rem;
+            }
+
+            .gallery img {
+                max-height: 400px;
+                object-fit: contain;
+                border: none;
+            }
+
+            .thumbs {
+                flex-direction: row;
+                overflow-x: auto;
+                gap: 10px;
+                -webkit-overflow-scrolling: touch;
+                max-width: 100%;
+                padding: 0.2rem 0.2rem;
+            }
+
+
+
+            .tab-buttons {
+                -webkit-overflow-scrolling: touch;
+                max-width: 100%;
+                overflow-x: auto;
+            }
+
+
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- HERO -->
+        <div class="hero">
+            <h1>Turbocharger for BMW X3 819976-0014</h1>
+        </div>
+
+        <!-- PRODUCT LAYOUT -->
+        <div class="layout">
+            <!-- GALLERY -->
+            <div class="gallery">
+                <img id="mainImage" src="./assets/images/turbocharger-bmw-x3-image-1.png" alt="Turbocharger BMW">
+                <div class="thumbs">
+                    <img src="./assets/images/turbocharger-bmw-x3-image-1.png" alt="Image 1" onclick="changeImage(this)"
+                        class="active">
+                    <img src="./assets/images/turbocharger-bmw-x3-image-2.png" alt="Image 2"
+                        onclick="changeImage(this)">
+                    <img src="./assets/images/turbocharger-bmw-x3-image-3.png" alt="Image 3"
+                        onclick="changeImage(this)">
+                    <img src="./assets/images/turbocharger-bmw-x3-image-4.png" alt="Image 4"
+                        onclick="changeImage(this)">
+                    <img src="./assets/images/turbocharger-bmw-x3-image-5.png" alt="Image 5"
+                        onclick="changeImage(this)">
+                    <img src="./assets/images/turbocharger-bmw-x3-image-1.png" alt="Image 5"
+                        onclick="changeImage(this)">
+                </div>
+            </div>
+
+            <!-- DETAILS -->
+
+            <div class="details">
+                <h2>Key Features</h2>
+                <ol>
+                    <li>
+                        <strong>High-Quality Construction: </strong>
+                        Crafted using top-grade materials, this turbo core ensures durability and longevity.
+                    </li>
+                    <li>
+                        <strong>Precision Balancing:</strong>
+                        The core is balanced using advanced machinery, ensuring smooth operation and reduced wear.
+                    </li>
+                    <li>
+                        <strong>Optimized Geometry: </strong>
+                        Variable geometry components are meticulously calibrated for optimal performance.
+                    </li>
+                    <li>
+                        <strong>Exchange Basis: </strong>
+                        This turbocharger is available on an exchange basis. Send us your old unit, and we’ll refund the
+                        deposit once we receive it.
+                    </li>
+                </ol>
+            </div>
+
+
+        </div>
+
+        <!-- TABS -->
+        <div class="tabs">
+            <div class="tab-buttons">
+                <button class="active" onclick="openTab(event, 'desc')">Description</button>
+                <button onclick="openTab(event, 'compat')">Compatibility</button>
+                <button onclick="openTab(event, 'shipping')">Shipping</button>
+                <button onclick="openTab(event, 'about')">About Us</button>
+            </div>
+            <div class="tab-content">
+                <section id="desc" class="desc active">
+
+
+
+
+
+                    <!-- PRODUCT TITLE -->
+                    <h2 class="section-title">Turbocharger For BMW X3 819976-0014</h2>
+
+                    <!-- INTRO -->
+                    <p>
+                        The <strong>Turbocharger for BMW X3 819976-0014</strong> is a high-quality turbocharger
+                        designed to enhance the performance of your BMW X3. This turbocharger is specifically engineered
+                        for the BMW X3, ensuring optimal power, durability, and efficiency.
+                    </p>
+
+
+
+                    <!-- OEM & PART NUMBERS -->
+                    <h3 class="sub-title">OEM and Part Numbers</h3>
+                    <div class="part-numbers">
+                        11658570082, 8570082D03, Turbo-G768, 857008212, 8570082F05, 11658570083, 8570082, 8570083,
+                        8513616,
+                        11658513616, 11428513616, 8570082E04, 8570082J08, 85700820000, 8570082H07, 8570082M11,
+                        8570080J11,
+                        851364106, 851364004, 11658570080F06, 8513640, 8570080, 851364005, 8513641, 11658570081,
+                        851364103,
+                        11658513640, 851364105, 8570080H08, 851364003, 11658570080G07, 851364006, 851364107, 851364007,
+                        851364104, 11658513641, 11658514267, 8514266, 8514267, 11658514266, 8570080G07, 8570080F06,
+                        11658570080, 8570081, 8591734, 11658591734, 851364102, 11658582021, 851364002, 8582021,
+                        11658513635,
+                        8513636, 8513635, 11658513636, 857008212, 11658511719, 11658513652, 11658579212, 11658579212C03,
+                        11658579213, 8511719, 8513652, 8570080I09, 8579212, 857921200000, 8579212C03, 8579212D04,
+                        8579212F06,
+                        857008204, 857008206, 857008207, 857008208, 857008309, 857008310, 8570082L10, 8570082G06,
+                        11428511647,
+                        11428472392, 11428513614, 11428579999, 8199760024, 8199760007, 819976-5021S, 819976-0021,
+                        819976-14, 819976-12,
+                        81997610, 8199760010,
+                        8199760012, 819976-0014, 819976-21, 81997624, 819976-5010S, 8199760013, 819976-13, 81997614,
+                        8199765013S, 819976-0013, 8199765010S, 819976-0012, 8199765015S, 8199767, 81997613, Turbo-G768,
+                        819976-5001K, 911445, 819976-15, 819976-0007, 819976-0015, 81997612, T916646, 819976-5024S,
+                        819976-5007S, 819976-5015S, 8199765012S, 819976-5014S, 8199765007S, 819976-0010, 819976-24,
+                        819976-5001RS, 8199760015, 819976-10, 8199760014, 81997621, 81997615, 819976-0024, 819976-5013S,
+                        819976-7, 8199760021, 819976, 819976-5012S, 8199765024S, 8199765014S, 8199765021S
+                    </div>
+
+                    <p class="note">*If you don’t see your OEM or Part number listed, please contact us. </p>
+
+
+                    <p><strong>Note 1:</strong> Please check the Turbocharger part number / OEM part number from your
+                        old part no to be
+                        100% sure if this is the right one for your Vehicle.</p>
+                    <p><strong>Note 2:</strong> If your vehicle part number matched with our any compatible Turbocharger
+                        & OEM part
+                        number, this is 100% fit and suitable for your turbocharger.</p>
+
+
+                    <!-- INSTALLATION -->
+                    <h3 class="sub-title">Installation</h3>
+                    <p>
+                        Professional installation is strongly recommended. Please ensure the OEM and part numbers match
+                        your
+                        existing turbocharger before purchase. Consult your vehicle’s manual or a certified mechanic for
+                        proper installation.
+                    </p>
+
+
+
+                </section>
+
+                <section id="compat">
+                    <table class="compatibility-table">
+                        <thead>
+                            <tr>
+                                <th>Make</th>
+                                <th>Model</th>
+                                <th>Year</th>
+                                <th>Code</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>BMW</td>
+                                <td>1 Series</td>
+                                <td>2013 - 2016</td>
+                                <td>F20</td>
+                            </tr>
+                            <tr>
+                                <td>BMW</td>
+                                <td>3 Series</td>
+                                <td>2007 - 2011</td>
+                                <td>E90</td>
+                            </tr>
+                            <tr>
+                                <td>BMW</td>
+                                <td>3 Series</td>
+                                <td>2012 - 2015</td>
+                                <td>F30</td>
+                            </tr>
+                            <tr>
+                                <td>BMW</td>
+                                <td>5 Series</td>
+                                <td>2013 - 2017</td>
+                                <td>F10 LCI</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+
+
+                <section id="shipping" class="shipping-section">
+                    <h3>Shipments</h3>
+                    <p>We ship items worldwide, and delivery takes approximately <strong>7-8 business days</strong>.</p>
+                    <p>For standard shipping, we use <strong>Aramex, FedEx, and DHL</strong> for quick movement of
+                        items.
+                        If the item does not arrive at the destination within this period, please contact us.</p>
+
+                    <div class="shipping-logos">
+                        <img src="./aramex.jpg" alt="Aramex">
+                        <img src="./DHL.png" alt="DHL">
+                        <img src="./FedEx.webp" alt="FedEx">
+                    </div>
+
+                    <ul class="shipping-list">
+                        <li>We are <strong>not liable</strong> for import duties or taxes charged by the destination
+                            country.</li>
+                        <li>Buyers are responsible for paying customs fees. If the buyer denies the parcel,
+                            <strong>refunds will not
+                                be initiated</strong>.</li>
+                        <li>Please provide your <strong>full address</strong> with a correct phone number to avoid
+                            shipment delays.
+                            PO Box addresses may not be accepted.</li>
+                    </ul>
+
+                    <h3>Payments</h3>
+                    <p>We accept secure payments via <strong>PayPal</strong>. Item price and shipping costs are clearly
+                        mentioned
+                        with each product.</p>
+
+                    <h3>Returns</h3>
+                    <p>We offer a <strong>30-day return policy</strong>. If the wrong item is delivered or if a
+                        replacement is
+                        required, customers may return the product within 30 days of receipt. Returned items should be
+                        in their
+                        original condition to qualify for a refund or exchange.</p>
+                </section>
+
+
+
+                <section id="about">
+                    <p><strong>Partsklik LLP</strong> — trusted supplier of premium auto parts with 30+ years
+                        experience. Specializing in turbochargers and engine components from leading brands.</p>
+                </section>
+            </div>
+        </div>
+
+        <!-- FOOTER LINKS -->
+        <div class="footer">
+            <a href="https://www.ebay.de/str/partsklik" target="_blank">Our Store</a> |
+            <a href="https://www.ebay.de/str/partsklik?_tab=feedback#tab2" target="_blank">Reviews</a> |
+            <a href="https://www.ebay.de/contact/sendmsg?&recipient=partsklik" target="_blank">Contact Us</a>
+        </div>
+    </div>
+
+    <script>
+        function changeImage(el) {
+            document.getElementById('mainImage').src = el.src;
+            document.querySelectorAll('.thumbs img').forEach(img => img.classList.remove('active'));
+            el.classList.add('active');
+        }
+
+        function openTab(evt, id) {
+            document.querySelectorAll('.tab-buttons button').forEach(btn => btn.classList.remove('active'));
+            evt.currentTarget.classList.add('active');
+            document.querySelectorAll('.tab-content section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
+
+</body>
+
+</html>
