@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promo Popup</title>
+
+  <style>
+    /* Popup Background */
+    .premium-popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.65);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      animation: premiumPopUpfadeIn 0.5s;
+    }
+
+    /* Popup Content */
+    .premium-popup-content {
+      background: #fff;
+      padding: 0;
+      max-width: 800px;
+      width: 90%;
+      text-align: center;
+      border-radius: 16px;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+      animation: premiumPopUpSlideIn 0.5s;
+      overflow: hidden;
+    }
+
+    /* Close Button */
+    .premium-popup-close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-size: 26px;
+      font-weight: bold;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      line-height: 32px;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .premium-popup-close:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Image */
+    .premium-popup-content img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 16px;
+    }
+
+    /* Animations */
+    @keyframes premiumPopUpfadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes premiumPopUpSlideIn {
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Premium Promo Popup -->
+  <div id="promoPopup" class="premium-popup">
+    <div class="premium-popup-content">
+      <span id="closePopup" class="premium-popup-close">&times;</span>
+      <!-- <img src="https://cdn.shopify.com/s/files/1/0792/5134/1620/files/IHI_BANNER_POPUP.jpg" alt="IHI Turbo Promo"> -->
+      <img src="./banner4.jpg" alt="IHI Turbo Promo">
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (!document.cookie.includes("promoShown=true")) {
+        setTimeout(function () {
+          document.getElementById('promoPopup').style.display = 'flex';
+          document.cookie = "promoShown=true; max-age=86400; path=/";
+        }, 3000);
+      }
+
+      // Close on X
+      document.getElementById('closePopup').addEventListener('click', function () {
+        document.getElementById('promoPopup').style.display = 'none';
+      });
+
+      // Close when clicking outside the content
+      document.getElementById('promoPopup').addEventListener('click', function (e) {
+        if (e.target === this) {
+          this.style.display = 'none';
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* Popup Background */
+        .premium-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.65);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            animation: fadeIn 0.5s;
+        }
+
+        /* Popup Content */
+        .premium-popup-content {
+            background: linear-gradient(145deg, #ffffff, #f8f8f8);
+            padding: 35px 30px;
+            max-width: 480px;
+            width: 90%;
+            text-align: center;
+            border-radius: 16px;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+            animation: slideIn 0.5s;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            border: 1px solid #ddd;
+        }
+
+        /* Close Button */
+        .premium-popup-close {
+            position: absolute;
+            top: 15px;
+            right: 18px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #555;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .premium-popup-close:hover {
+            color: #000;
+        }
+
+        /* Heading */
+        .premium-popup-content h2 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: #111;
+            font-weight: 700;
+        }
+
+        /* Paragraph */
+        .premium-popup-content p {
+            font-size: 16px;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media(max-width:480px) {
+            .premium-popup-content {
+                padding: 25px 20px;
+            }
+
+            .premium-popup-content h2 {
+                font-size: 20px;
+            }
+
+            .premium-popup-content p {
+                font-size: 15px;
+            }
+        }
+    </style>
+
+
+
+
+</head>
+
+<body>
+
+
+    <!-- Premium Promo Popup -->
+    <div id="promoPopup" class="premium-popup">
+        <div class="premium-popup-content">
+            <span id="closePopup" class="premium-popup-close">&times;</span>
+            <h2>Authorized IHI Turbo Dealer in India</h2>
+            <p>We now offer <strong>genuine IHI turbochargers</strong> and <strong>turbo parts</strong> for peak
+                performance.</p>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Check if cookie exists
+            if (!document.cookie.includes("promoShown=true")) {
+                // Show popup after 3 seconds
+                setTimeout(function () {
+                    document.getElementById('promoPopup').style.display = 'flex';
+                    // Set cookie to expire in 1 day (86400 seconds)
+                    document.cookie = "promoShown=true; max-age=86400; path=/";
+                }, 3000);
+            }
+
+            // Close on X or button
+            document.getElementById('closePopup').addEventListener('click', function () {
+                document.getElementById('promoPopup').style.display = 'none';
+            });
+            document.getElementById('popupButton').addEventListener('click', function () {
+                document.getElementById('promoPopup').style.display = 'none';
+            });
+
+            // Close when clicking outside the content
+            document.getElementById('promoPopup').addEventListener('click', function (e) {
+                if (e.target === this) {
+                    this.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+
+
+</body>
+
+</html>
